@@ -31,11 +31,6 @@
 
 # Keep versions on both arches in sync.
 =dev-cpp/glog-0.6.0 ~arm64
-
-# Needed by arm64-native SDK.
-=dev-lang/nasm-2.15.05 ~arm64
-
-# Keep versions on both arches in sync.
 =dev-lang/python-3.11.9 ~amd64
 
 # Accept unstable host Rust compilers.
