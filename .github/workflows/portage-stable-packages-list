@@ -174,6 +174,8 @@ dev-build/meson
 dev-build/meson-format-array
 dev-build/ninja
 
+dev-cpp/gflags
+dev-cpp/glog
 dev-cpp/gtest
 
 dev-db/sqlite
@@ -181,14 +183,18 @@ dev-db/sqlite
 dev-debug/gdb
 dev-debug/strace
 
+dev-embedded/u-boot-tools
+
 dev-lang/duktape
 dev-lang/go-bootstrap
 dev-lang/lua
+dev-lang/nasm
 dev-lang/perl
 dev-lang/python
 dev-lang/python-exec
 dev-lang/python-exec-conf
 dev-lang/swig
+dev-lang/tcl
 dev-lang/yasm
 
 dev-libs/cJSON
@@ -277,6 +283,7 @@ dev-python/more-itertools
 dev-python/ordered-set
 dev-python/packaging
 dev-python/pathspec
+dev-python/pip
 dev-python/platformdirs
 dev-python/pluggy
 dev-python/pydecomp
