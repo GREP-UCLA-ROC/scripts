@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: gnome2-utils.eclass
@@ -25,55 +25,59 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
-# @ECLASS-VARIABLE: GCONFTOOL_BIN
+# @ECLASS_VARIABLE: GCONFTOOL_BIN
 # @INTERNAL
 # @DESCRIPTION:
 # Path to gconftool-2
-: ${GCONFTOOL_BIN:="/usr/bin/gconftool-2"}
+: "${GCONFTOOL_BIN:="/usr/bin/gconftool-2"}"
 
-# @ECLASS-VARIABLE: SCROLLKEEPER_DIR
+# @ECLASS_VARIABLE: SCROLLKEEPER_DIR
 # @INTERNAL
 # @DESCRIPTION:
 # Directory where scrollkeeper-update should do its work
-: ${SCROLLKEEPER_DIR:="/var/lib/scrollkeeper"}
+: "${SCROLLKEEPER_DIR:="/var/lib/scrollkeeper"}"
 
-# @ECLASS-VARIABLE: SCROLLKEEPER_UPDATE_BIN
+# @ECLASS_VARIABLE: SCROLLKEEPER_UPDATE_BIN
 # @INTERNAL
 # @DESCRIPTION:
 # Path to scrollkeeper-update
-: ${SCROLLKEEPER_UPDATE_BIN:="/usr/bin/scrollkeeper-update"}
+: "${SCROLLKEEPER_UPDATE_BIN:="/usr/bin/scrollkeeper-update"}"
 
-# @ECLASS-VARIABLE: GLIB_COMPILE_SCHEMAS
-# @INTERNAL
+# @ECLASS_VARIABLE: GLIB_COMPILE_RESOURCES
+# @DESCRIPTION:
+# Path to glib-compile-resources
+: "${GLIB_COMPILE_RESOURCES:="/usr/bin/glib-compile-resources"}"
+
+# @ECLASS_VARIABLE: GLIB_COMPILE_SCHEMAS
 # @DESCRIPTION:
 # Path to glib-compile-schemas
-: ${GLIB_COMPILE_SCHEMAS:="/usr/bin/glib-compile-schemas"}
+: "${GLIB_COMPILE_SCHEMAS:="/usr/bin/glib-compile-schemas"}"
 
-# @ECLASS-VARIABLE: GNOME2_ECLASS_SCHEMAS
+# @ECLASS_VARIABLE: GNOME2_ECLASS_SCHEMAS
 # @INTERNAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # List of GConf schemas provided by the package
 
-# @ECLASS-VARIABLE: GNOME2_ECLASS_ICONS
+# @ECLASS_VARIABLE: GNOME2_ECLASS_ICONS
 # @INTERNAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # List of icons provided by the package
 
-# @ECLASS-VARIABLE: GNOME2_ECLASS_SCROLLS
+# @ECLASS_VARIABLE: GNOME2_ECLASS_SCROLLS
 # @INTERNAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # List of scrolls (documentation files) provided by the package
 
-# @ECLASS-VARIABLE: GNOME2_ECLASS_GLIB_SCHEMAS
+# @ECLASS_VARIABLE: GNOME2_ECLASS_GLIB_SCHEMAS
 # @INTERNAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # List of GSettings schemas provided by the package
 
-# @ECLASS-VARIABLE: GNOME2_ECLASS_GDK_PIXBUF_LOADERS
+# @ECLASS_VARIABLE: GNOME2_ECLASS_GDK_PIXBUF_LOADERS
 # @INTERNAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -82,7 +86,7 @@ esac
 
 # @FUNCTION: gnome2_environment_reset
 # @DESCRIPTION:
-# Reset various variables inherited from root's evironment to a reasonable
+# Reset various variables inherited from root's environment to a reasonable
 # default for ebuilds to help avoid access violations and test failures.
 gnome2_environment_reset() {
 	xdg_environment_reset
@@ -358,11 +362,6 @@ gnome2_gdk_pixbuf_savelist() {
 gnome2_gdk_pixbuf_update() {
 	local updater="${EROOT%/}/usr/bin/${CHOST}-gdk-pixbuf-query-loaders"
 	[[ -x ${updater} ]] || updater="${EROOT%/}/usr/bin/gdk-pixbuf-query-loaders"
-
-	if [[ -z ${GNOME2_ECLASS_GDK_PIXBUF_LOADERS} ]]; then
-		debug-print "gdk-pixbuf loader cache does not need an update"
-		return
-	fi
 
 	if tc-is-cross-compiler ; then
 		ewarn "Updating of gdk-pixbuf loader cache skipped due to cross-compilation."
