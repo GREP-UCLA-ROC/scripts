@@ -52,7 +52,6 @@ esac
 if [[ -z ${_GOLANG_VCS_SNAPSHOT_ECLASS} ]]; then
 _GOLANG_VCS_SNAPSHOT_ECLASS=1
 
-# Flatcar: Keep this change until upstream has merged https://github.com/gentoo/gentoo/pull/33539
 inherit golang-base go-env
 
 # @ECLASS_VARIABLE: EGO_VENDOR
@@ -120,7 +119,6 @@ golang-vcs-snapshot_src_unpack() {
 		done
 	fi
 
-	# Flatcar: Keep this change until upstream has merged https://github.com/gentoo/gentoo/pull/33539
 	go-env_set_compile_environment
 }
 
