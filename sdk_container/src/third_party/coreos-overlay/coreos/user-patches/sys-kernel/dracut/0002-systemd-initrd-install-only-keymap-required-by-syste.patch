@@ -1,7 +1,7 @@
-From 6d7e4b88c21f45cf1695e4495004a12cacd58d0c Mon Sep 17 00:00:00 2001
+From bd81eca4599e6cd30b81cf978477787160f1155c Mon Sep 17 00:00:00 2001
 From: Adrian Vladu <avladu@cloudbasesolutions.com>
 Date: Thu, 7 Mar 2024 11:17:54 +0000
-Subject: [PATCH] systemd: initrd: install only keymap required by
+Subject: [PATCH 2/2] systemd: initrd: install only keymap required by
  systemd-vconsole-setup
 
 Signed-off-by: Adrian Vladu <avladu@cloudbasesolutions.com>
@@ -10,7 +10,7 @@ Signed-off-by: Adrian Vladu <avladu@cloudbasesolutions.com>
  1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/modules.d/10i18n/module-setup.sh b/modules.d/10i18n/module-setup.sh
-index d6688b47..516883be 100755
+index ac456112..8665cb81 100755
 --- a/modules.d/10i18n/module-setup.sh
 +++ b/modules.d/10i18n/module-setup.sh
 @@ -4,7 +4,7 @@
@@ -22,7 +22,7 @@ index d6688b47..516883be 100755
  
      return 0
  }
-@@ -164,6 +164,10 @@ install() {
+@@ -183,6 +183,10 @@ install() {
          fi
          shopt -q -u nocasematch
  
@@ -33,7 +33,7 @@ index d6688b47..516883be 100755
          # Gentoo user may have KEYMAP set to something like "-u pl2",
          KEYMAP=${KEYMAP#-* }
  
-@@ -267,10 +271,7 @@ install() {
+@@ -288,10 +292,7 @@ install() {
              inst_simple ${VCONFIG_CONF}
          fi
  
@@ -47,5 +47,5 @@ index d6688b47..516883be 100755
      fi
  }
 -- 
-2.43.0
+2.34.1
 

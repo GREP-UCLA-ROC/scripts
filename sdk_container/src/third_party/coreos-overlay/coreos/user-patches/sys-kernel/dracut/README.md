@@ -1,18 +1,11 @@
-0000-change-network-dep-iscsi.patch
-===================================
+0001-Add-Flatcar-specific-patch-to-enable-the-iscsi-modul.patch
+===============================================================
 
 Add Flatcar specific patch to enable the iscsi module
 
 Flatcar uses its own network module instead of the Dracut one, but the
 iscsi module depends on the network. So, in order to enable the iscsi
 module, we need to patch the dependency
-
-0001-systemd-executor.patch
-===========================
-
-Systemd gained a new binary - systemd-executor - that's used to spawn
-processes forked off systemd. Let's copy it into the initrd if it's
-available.
 
 0002-systemd-initrd-install-only-keymap-required-by-syste.patch
 ===============================================================
