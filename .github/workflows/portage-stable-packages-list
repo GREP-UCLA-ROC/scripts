@@ -403,7 +403,6 @@ licenses
 media-libs/libpng
 
 net-analyzer/netperf
-net-analyzer/nmap
 net-analyzer/traceroute
 
 net-dns/bind-tools
