@@ -107,8 +107,8 @@ fi
 
 set_vm_paths "${FLAGS_from}" "${FLAGS_to}" "${FLATCAR_PRODUCTION_IMAGE_NAME}" "${FLATCAR_PRODUCTION_IMAGE_SYSEXT_BASE}"
 
-# Make sure things are cleaned up on failure
-trap vm_cleanup EXIT
+# Make sure things are cleaned up on failure; or maybe not
+# trap vm_cleanup EXIT
 
 fix_mtab
 
@@ -125,7 +125,7 @@ write_vm_disk
 write_vm_conf "${FLAGS_mem}"
 write_vm_bundle
 
-vm_cleanup
+# vm_cleanup
 trap - EXIT
 
 # Optionally upload all of our hard work
