@@ -94,7 +94,6 @@ RDEPEND="${RDEPEND}
 	app-arch/xz-utils
 	app-arch/zstd
 	app-arch/tar
-    app-editors/neovim
 	app-arch/unzip
 	app-arch/zip
 	app-arch/ncompress
@@ -118,7 +117,6 @@ RDEPEND="${RDEPEND}
 	coreos-base/afterburn
 	coreos-base/coreos-cloudinit
 	coreos-base/coreos-init
-    dev-util/indent
 	coreos-base/misc-files
 	coreos-base/update-ssh-keys
 	coreos-base/update_engine
@@ -127,7 +125,7 @@ RDEPEND="${RDEPEND}
 	dev-libs/libsodium
 	dev-libs/openssl
 	dev-util/bpftool
-    net-misc/networkmanager
+    	net-wireless/iwd
 	dev-util/bsdiff
 	dev-vcs/git
 	net-analyzer/nmap
@@ -174,7 +172,6 @@ RDEPEND="${RDEPEND}
 	sys-apps/keyutils
 	sys-apps/less
 	sys-apps/lshw
-    sys-apps/the_silver_searcher
 	sys-apps/net-tools
 	sys-apps/nvme-cli
 	sys-apps/pciutils
