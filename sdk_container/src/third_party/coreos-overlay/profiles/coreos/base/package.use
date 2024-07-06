@@ -172,3 +172,9 @@ x11-base/xorg-drivers input_devices_evdev input_devices_synaptics video_cards_in
 x11-base/xorg-server glamor xorg
 
 x11-libs/libdrm libkms video_cards_nouveau video_cards_vmware video_cards_radeon
+
+>=x11-libs/cairo-1.18.0 X
+>=x11-libs/libxkbcommon-1.7.0 X
+>=x11-libs/pango-1.52.1 X
+=x11-libs/pango-1.51.0 X
+=media-libs/harfbuzz-9.0.0 amd64
