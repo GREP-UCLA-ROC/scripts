@@ -15,14 +15,14 @@ MY_PV=${MY_PV/_/-}
 MY_P=${PN}-${MY_PV}
 MY_PATCHES=()
 
-# Determine the patchlevel.
+# Determine the patchlevel. See ftp://ftp.gnu.org/gnu/bash/bash-5.3-patches/.
 case ${PV} in
+	*_p*)
+		PLEVEL=${PV##*_p}
+		;;
 	9999|*_alpha*|*_beta*|*_rc*)
 		# Set a negative patchlevel to indicate that it's a pre-release.
 		PLEVEL=-1
-		;;
-	*_p*)
-		PLEVEL=${PV##*_p}
 		;;
 	*)
 		PLEVEL=0
@@ -39,15 +39,6 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/bash.git"
 	EGIT_BRANCH=devel
 	inherit git-r3
-elif (( PLEVEL < 0 )) && [[ ${PV} == *_p* ]] ; then
-	# It can be useful to have snapshots in the pre-release period once
-	# the first alpha is out, as various bugs get reported and fixed from
-	# the alpha, and the next pre-release is usually quite far away.
-	#
-	# i.e. if it's worth packaging the alpha, it's worth packaging a followup.
-	BASH_COMMIT="5e28a1813ce7d08628c8df584ea36515091c6d9b"
-	SRC_URI="https://git.savannah.gnu.org/cgit/bash.git/snapshot/bash-${BASH_COMMIT}.tar.xz -> ${P}-${BASH_COMMIT}.tar.xz"
-	S=${WORKDIR}/${PN}-${BASH_COMMIT}
 else
 	my_urls=( {'mirror://gnu/bash','ftp://ftp.cwru.edu/pub/bash'}/"${MY_P}.tar.gz" )
 
@@ -61,7 +52,6 @@ else
 	done
 
 	SRC_URI="${my_urls[*]} verify-sig? ( ${my_urls[*]/%/.sig} )"
-	S=${WORKDIR}/${MY_P}
 
 	unset -v my_urls my_p my_patch_idx my_patch_ver
 fi
@@ -69,6 +59,8 @@ fi
 if [[ ${GENTOO_PATCH_VER} ]]; then
 	SRC_URI+=" https://dev.gentoo.org/~${GENTOO_PATCH_DEV:?}/distfiles/${CATEGORY}/${PN}/${PN}-${GENTOO_PATCH_VER:?}-patches.tar.xz"
 fi
+
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -122,8 +114,6 @@ src_unpack() {
 
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
-	elif (( PLEVEL < 0 )) && [[ ${PV} == *_p* ]] ; then
-		default
 	else
 		if use verify-sig; then
 			verify-sig_verify_detached "${DISTDIR}/${MY_P}.tar.gz"{,.sig}
