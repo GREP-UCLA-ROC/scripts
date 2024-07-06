@@ -269,6 +269,8 @@ PORTAGE_BINHOST="${BOARD_BINHOST}"
 # You can use --select to override this.
 EMERGE_DEFAULT_OPTS="--oneshot --verbose"
 
+VIDEO_CARDS="intel i965"
+
 # Enable provenance reporting by default. Produced files are in /usr/share/SLSA
 GENERATE_SLSA_PROVENANCE="true"
 
