@@ -115,7 +115,6 @@ RDEPEND="${RDEPEND}
     media-gfx/feh
     app-shells/bash-completion
     app-text/tree
-    dev-util/strace
 	coreos-base/afterburn
 	coreos-base/coreos-cloudinit
 	coreos-base/coreos-init
