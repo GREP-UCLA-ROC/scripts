@@ -6,17 +6,9 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit bash-completion-r1 edo distutils-r1 flag-o-matic toolchain-funcs
-
 if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/mesonbuild/meson"
-	inherit ninja-utils git-r3
-
-	BDEPEND="
-		${NINJA_DEPEND}
-		$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]')
-	"
-
+	inherit git-r3
 else
 	inherit verify-sig
 
@@ -27,7 +19,6 @@ else
 	SRC_URI="
 		https://github.com/mesonbuild/meson/releases/download/${MY_PV}/${MY_P}.tar.gz
 		verify-sig? ( https://github.com/mesonbuild/meson/releases/download/${MY_PV}/${MY_P}.tar.gz.asc )
-		https://github.com/mesonbuild/meson/releases/download/${MY_PV}/meson-reference.3 -> meson-reference-${MY_PV}.3
 	"
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-jpakkane )"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/jpakkane.gpg
@@ -36,6 +27,8 @@ else
 		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 	fi
 fi
+
+inherit bash-completion-r1 flag-o-matic distutils-r1 toolchain-funcs
 
 DESCRIPTION="Open source build system"
 HOMEPAGE="https://mesonbuild.com/"
@@ -56,22 +49,12 @@ DEPEND="
 	)
 "
 RDEPEND="
-	!<dev-build/muon-0.2.0-r2[man(-)]
 	virtual/pkgconfig
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.2.1-python-path.patch
 )
-
-src_unpack() {
-	if [[ ${PV} = *9999* ]]; then
-		git-r3_src_unpack
-	else
-		default
-		use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.gz{,.asc}
-	fi
-}
 
 python_prepare_all() {
 	local disable_unittests=(
@@ -90,31 +73,6 @@ python_prepare_all() {
 	rm -r "test cases/frameworks/1 boost" || die
 
 	distutils-r1_python_prepare_all
-}
-
-python_check_deps() {
-	if [[ ${PV} = *9999* ]]; then
-		python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
-	fi
-}
-
-python_configure_all() {
-	if [[ ${PV} = *9999* ]]; then
-		# We use the unsafe_yaml loader because strictyaml is not packaged. In
-		# theory they produce the same results, but pyyaml is faster and
-		# without safety checks.
-		edo ./meson.py setup \
-			--prefix "${EPREFIX}/usr" \
-			-Dhtml=false \
-			-Dunsafe_yaml=true \
-			docs/ docs/builddir
-	fi
-}
-
-python_compile_all() {
-	if [[ ${PV} = *9999* ]]; then
-		eninja -C docs/builddir
-	fi
 }
 
 src_test() {
@@ -171,10 +129,4 @@ python_install_all() {
 	doins data/shell-completions/zsh/_meson
 
 	dobashcomp data/shell-completions/bash/meson
-
-	if [[ ${PV} = *9999* ]]; then
-		DESTDIR="${ED}" eninja -C docs/builddir install
-	else
-		newman "${DISTDIR}"/meson-reference-${PV}.3 meson-reference.3
-	fi
 }
