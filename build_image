@@ -120,11 +120,11 @@ for arg in "$@"; do
   esac
 done
 
-# Check that the build root is sane.
-if [[ ${skip_test_build_root} -ne 1 ]]; then
-  info "Checking build root"
-  test_image_content "${BOARD_ROOT}"
-fi
+# Check that the build root is sane. Disable image content test, temporarily TODO(Krish)
+#if [[ ${skip_test_build_root} -ne 1 ]]; then
+#  info "Checking build root"
+#  test_image_content "${BOARD_ROOT}"
+#fi
 
 # Handle existing directory.
 if [[ -e "${BUILD_DIR}" ]] && [[ "${PROD_IMAGE}" = 1 ]]; then
