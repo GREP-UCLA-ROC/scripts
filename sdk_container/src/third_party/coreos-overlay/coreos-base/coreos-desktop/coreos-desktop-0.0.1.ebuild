@@ -216,7 +216,7 @@ RDEPEND="${RDEPEND}
 	x11-misc/i3status
 	x11-misc/xclip
 	x11-misc/xcompmgr
-	x11-terms/rxvt-unicode
+	x11-terms/st
 	x11-wm/i3
 "
 
