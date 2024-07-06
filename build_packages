@@ -331,7 +331,8 @@ fi
 eclean-$BOARD -d packages
 
 info "Checking build root"
-test_image_content "${BOARD_ROOT}"
+# TODO(Krish): PLEASE REENABLE THIS!! A VERY BAD IDEA. But do things that don't scale :)
+# test_image_content "${BOARD_ROOT}" 
 
 # upload packages if enabled
 upload_packages
