@@ -151,7 +151,6 @@ RDEPEND="${RDEPEND}
 	net-misc/socat
 	net-misc/wget
 	net-misc/whois
-    net-vpn/openvpn
 	net-vpn/wireguard-tools
 	sec-policy/selinux-base
 	sec-policy/selinux-base-policy
@@ -163,11 +162,9 @@ RDEPEND="${RDEPEND}
 	sys-apps/coreutils
 	sys-apps/checkpolicy
 	sys-apps/dbus
-    sys-apps/gawk
     sys-apps/grep
 	sys-apps/diffutils
 	sys-apps/ethtool
-    sys-apps/rng-tools
 	sys-apps/findutils
 	sys-apps/gptfdisk
 	sys-apps/grep
@@ -188,10 +185,6 @@ RDEPEND="${RDEPEND}
 	sys-apps/usbutils
 	sys-apps/util-linux
 	sys-apps/which
-    sys-devel/patch
-    sys-devel/bc
-    sys-devel/make
-    sys-devel/gcc
 	sys-apps/zram-generator
 	sys-auth/realmd
 	sys-auth/sssd
