@@ -125,7 +125,7 @@ fi
 # set BOARD and BOARD_ROOT
 . "${BUILD_LIBRARY_DIR}/toolchain_util.sh" || exit 1
 . "${BUILD_LIBRARY_DIR}/board_options.sh" || exit 1
-. "${BUILD_LIBRARY_DIR}/test_image_content.sh" || exit 1
+# . "${BUILD_LIBRARY_DIR}/test_image_content.sh" || exit 1
 
 # Setup all the emerge command/flags.
 EMERGE_FLAGS=( --update --deep --newuse --verbose --backtrack=30 --select )

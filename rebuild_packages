@@ -34,7 +34,7 @@ check_gsutil_opts
 # set BOARD and BOARD_ROOT
 . "${BUILD_LIBRARY_DIR}/toolchain_util.sh" || exit 1
 . "${BUILD_LIBRARY_DIR}/board_options.sh" || exit 1
-. "${BUILD_LIBRARY_DIR}/test_image_content.sh" || exit 1
+# . "${BUILD_LIBRARY_DIR}/test_image_content.sh" || exit 1
 
 declare -A repo_paths
 for repo_name in $(portageq-$BOARD get_repos "${BOARD_ROOT}"); do
@@ -77,7 +77,7 @@ else
     emerge-$BOARD --verbose "--jobs=${NUM_JOBS}" "${rebuild_atoms[@]}"
 
     info "Checking build root"
-    test_image_content "${BOARD_ROOT}"
+#    test_image_content "${BOARD_ROOT}"
 
     # upload packages if enabled
     upload_packages

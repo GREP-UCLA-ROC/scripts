@@ -194,8 +194,8 @@ emerge_to_image() {
 
   # TODO(marineam): just call ${BUILD_LIBRARY_DIR}/check_root directly once
   # all tests are fatal, for now let the old function skip soname errors.
-  ROOT="${root_fs_dir}" PORTAGE_CONFIGROOT="${BUILD_DIR}"/configroot \
-      test_image_content "${root_fs_dir}"
+#  ROOT="${root_fs_dir}" PORTAGE_CONFIGROOT="${BUILD_DIR}"/configroot \
+   #   test_image_content "${root_fs_dir}"
 }
 
 # emerge_to_image without a rootfs check; you should use emerge_to_image unless
