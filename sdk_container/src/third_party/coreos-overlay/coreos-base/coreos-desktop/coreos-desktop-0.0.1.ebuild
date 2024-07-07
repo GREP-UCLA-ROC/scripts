@@ -133,9 +133,11 @@ RDEPEND="${RDEPEND}
 	net-analyzer/traceroute
 	net-dns/bind-tools
 	net-firewall/conntrack-tools
+	x11-drivers/xf86-video-qxl
 	net-firewall/ebtables
     net-misc/openssh
 	net-firewall/ipset
+	app-emulation/spice-vdagent
 	x11-drivers/xf86-video-vesa
 	x11-drivers/xf86-video-fbdev
 	net-firewall/iptables
