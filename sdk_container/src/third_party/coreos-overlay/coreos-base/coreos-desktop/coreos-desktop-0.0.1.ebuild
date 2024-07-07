@@ -144,6 +144,7 @@ RDEPEND="${RDEPEND}
 	net-fs/cifs-utils
 	net-misc/bridge-utils
     net-misc/dhcp
+	x11-drivers/xf86-video-intel
 	net-misc/curl
 	net-misc/iputils
 	net-misc/ntp
