@@ -136,6 +136,8 @@ RDEPEND="${RDEPEND}
 	net-firewall/ebtables
     net-misc/openssh
 	net-firewall/ipset
+	x11-drivers/xf86-video-vesa
+	x11-drivers/xf86-video-fbdev
 	net-firewall/iptables
 	net-firewall/nftables
 	net-fs/nfs-utils
