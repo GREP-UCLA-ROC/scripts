@@ -716,7 +716,7 @@ EOF
   fi
 
   # Build the selinux policy
-  if pkg_use_enabled coreos-base/coreos-desktop selinux; then
+  if pkg_use_enabled coreos-base/coreos selinux; then
       sudo chroot "${root_fs_dir}" bash -c "cd /usr/share/selinux/mcs && semodule -s mcs -i *.pp"
   fi
 
@@ -751,7 +751,7 @@ EOF
   # SELinux: Label the root filesystem for using 'file_contexts'.
   # The labeling has to be done before moving /etc to /usr/share/flatcar/etc to prevent wrong labels for these files and as
   # the relabeling on boot would cause upcopies in the overlay.
-  if pkg_use_enabled coreos-base/coreos-desktop selinux; then
+  if pkg_use_enabled coreos-base/coreos selinux; then
     # TODO: Breaks the system:
     # sudo setfiles -Dv -r "${root_fs_dir}" "${root_fs_dir}"/etc/selinux/mcs/contexts/files/file_contexts "${root_fs_dir}"
     # sudo setfiles -Dv -r "${root_fs_dir}" "${root_fs_dir}"/etc/selinux/mcs/contexts/files/file_contexts "${root_fs_dir}"/usr

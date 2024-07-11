@@ -186,3 +186,84 @@ x11-libs/libdrm libkms video_cards_nouveau video_cards_vmware video_cards_radeon
 >=x11-libs/pango-1.52.1 X
 >=x11-libs/libxkbcommon-1.7.0 X
 >=x11-libs/cairo-1.18.0 X
+
+# required by x11-libs/pango-1.52.1::portage-stable
+# required by x11-wm/i3-4.23::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=x11-libs/cairo-1.18.0 X
+# required by x11-wm/i3-4.23::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=x11-libs/libxkbcommon-1.7.0 X
+# required by x11-wm/i3-4.23::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=x11-libs/pango-1.52.1 X
+# required by media-libs/mesa-24.0.9::portage-stable
+# required by x11-base/xorg-server-21.1.13-r1::portage-stable[-minimal]
+# required by x11-drivers/xf86-video-qxl-0.1.6::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=media-libs/libglvnd-1.7.0 X
+# required by x11-base/xorg-server-21.1.13-r1::portage-stable[-minimal]
+# required by x11-drivers/xf86-video-qxl-0.1.6::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=media-libs/mesa-24.0.9 X
+# required by x11-base/xorg-server-21.1.13-r1::portage-stable[-minimal]
+# required by x11-drivers/xf86-video-qxl-0.1.6::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=media-libs/libepoxy-1.5.10-r3 X
+# required by media-gfx/feh-3.10.2::portage-stable
+# required by coreos-base/coreos-desktop-0.0.1-r312::coreos
+# required by coreos-base/coreos-desktop (argument)
+>=media-libs/imlib2-1.11.0 X
+
+
+
+The following USE changes are necessary to proceed:
+ (see "package.use" in the portage(5) man page for more details)
+# required by media-gfx/feh-3.10.2::portage-stable
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
+>=media-libs/imlib2-1.11.0 X
+# required by x11-libs/pango-1.52.1::portage-stable
+# required by x11-wm/i3-4.23::portage-stable
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
+>=x11-libs/cairo-1.18.0 X
+# required by x11-misc/i3lock-2.14.1-r2::portage-stable
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libxkbcommon-1.7.0 X
+# required by x11-wm/i3-4.23::portage-stable
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
+>=x11-libs/pango-1.52.1 X
+# required by media-libs/mesa-24.0.9::portage-stable
+# required by x11-base/xorg-server-21.1.13-r1::portage-stable[-minimal]
+# required by x11-drivers/xf86-input-evdev-2.10.6::portage-stable
+# required by x11-base/xorg-drivers-21.1-r2::portage-stable[input_devices_evdev]
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
+>=media-libs/libglvnd-1.7.0 X
+# required by x11-base/xorg-server-21.1.13-r1::portage-stable[-minimal]
+# required by x11-drivers/xf86-input-evdev-2.10.6::portage-stable
+# required by x11-base/xorg-drivers-21.1-r2::portage-stable[input_devices_evdev]
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
+>=media-libs/mesa-24.0.9 X
+# required by x11-base/xorg-server-21.1.13-r1::portage-stable[-minimal]
+# required by x11-drivers/xf86-input-evdev-2.10.6::portage-stable
+# required by x11-base/xorg-drivers-21.1-r2::portage-stable[input_devices_evdev]
+# required by coreos-devel/board-packages-0.0.1-r14::coreos
+# required by @selected
+# required by @world (argument)
